@@ -1,0 +1,40 @@
+@import "../../styles/var";
+
+.header {
+	border-bottom: 1px solid $primary-background;
+	background: $secondary-background;
+	color: $secondary-color;
+	padding: 10px 0;
+	box-shadow: $primary-shadow;
+}
+
+.headerWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+}
+
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	font-size: 26px;
+	font-weight: 500;
+
+	img {
+		max-width: 50px;
+	}
+}
+
+.menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.login {
+	color: $primary-color;
+}

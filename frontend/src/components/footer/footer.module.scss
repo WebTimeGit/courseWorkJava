@@ -1,0 +1,8 @@
+@import "../../styles/var";
+
+.footer {
+	border-top: 1px solid $primary-background;
+	background: $secondary-background;
+	color: $secondary-color;
+	box-shadow: $primary-shadow;
+}

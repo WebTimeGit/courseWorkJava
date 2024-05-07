@@ -1,0 +1,14 @@
+@import "../../styles/var";
+
+
+.layout {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background: $primary-background;
+	color: $primary-color;
+}
+
+.main {
+	flex-grow: 1;
+}
