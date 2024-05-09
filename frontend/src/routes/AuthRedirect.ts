@@ -9,18 +9,21 @@ export const AuthRedirect: React.FC<{
 	const { isAuth } = useAuthContext()
 	const router = useRouter()
 
-	useEffect(() => {
+	const checkDynamicPathMatch = (routPath: string, dynamicPath: string) => {
+		return (
+			router.pathname.includes(routPath) &&
+			router.pathname.split('/')[3] === dynamicPath
+		)
+	}
 
-		const isClosedRoute = !openRoutes.some(route => {
-			if (route.type === RouteType.exact) {
-				return route.path === router.pathname
-			} else if (route.type === RouteType.withId) {
-				return new RegExp(route.path).test(router.pathname)
-			}
+	useEffect(() => {
+		const isOpenPath = openRoutes.some(route => {
+			if (route.type === RouteType.exact) return route.path === router.pathname
+			else if (route.type === RouteType.withId) return checkDynamicPathMatch(route.path, '[userId]');
 			return false
 		})
 
-		if (!isAuth && isClosedRoute) {
+		if (!isAuth && !isOpenPath) {
 			router.push(ROUTES.auth.login).then()
 		}
 	}, [isAuth, router])

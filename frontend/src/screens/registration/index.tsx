@@ -2,10 +2,8 @@
 import React from 'react';
 import {RegistrationForm} from "@/components/forms/registrationForm";
 
-const Index = () => {
+export const Registration = () => {
 	return (
 		<RegistrationForm />
 	);
 };
-
-export default Index;

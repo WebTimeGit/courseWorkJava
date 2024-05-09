@@ -24,8 +24,12 @@ export const Header = () => {
 
 					<div>
 
+
 						{isAuth ? (
 							<>
+								<Link href={ROUTES.users.profile(userData?.id)} className={styles.login}>
+									Profile
+								</Link>
 								<span>{userData?.username}</span>
 								<button className={styles.login} onClick={onHandleLogout} aria-label="Logout">
 									Logout

@@ -1,6 +1,7 @@
+import {AUTH} from "@/services/api/auth";
+import {USERS} from "@/services/api/users";
 
 export const API = {
-	signin: '/api/auth/login/',
-	signup: '/api/auth/registration/',
-	userInfo: '/api/users/userInfo/',
+	AUTH,
+	USERS
 }

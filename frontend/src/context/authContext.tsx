@@ -25,9 +25,10 @@ export type registerDTO = {
 
 export type TUserInfo = {
 	id: number
-	date: string
+	registrationDate: string
 	email: string
 	username: string
+	role: string
 }
 
 export type TUserData = {
@@ -89,7 +90,7 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({childre
 			try {
 				if (loading) return;
 				setLoading(true);
-				const response = await api.post(API.signin, data);
+				const response = await api.post(API?.AUTH?.signin, data);
 				setToken(response?.data?.token);
 				setIsAuth(true);
 
@@ -130,7 +131,7 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({childre
 				if (loading) return
 				setLoading(true)
 
-				const response = await api.post(API.signup, data)
+				const response = await api.post(API?.AUTH?.signup, data)
 
 				localStorage.setItem('token', response?.data?.token)
 				setToken(response?.data?.token)
