@@ -2,7 +2,7 @@ package com.parking.management;
 
 import com.parking.management.entities.ParkingSpace;
 import com.parking.management.repositories.ParkingSpaceRepository;
-import com.parking.management.services.ParkingService;
+import com.parking.management.services.ParkingSpaceService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -12,18 +12,18 @@ import java.util.List;
 
 public class ParkingServiceTests {
     private ParkingSpaceRepository parkingSpaceRepository;
-    private ParkingService parkingService;
+    private ParkingSpaceService parkingService;
 
     @BeforeEach
     public void setup() {
         parkingSpaceRepository = Mockito.mock(ParkingSpaceRepository.class);
-        parkingService = new ParkingService(parkingSpaceRepository);
+        parkingService = new ParkingSpaceService(parkingSpaceRepository);
     }
 
     @Test
     public void testGetAllFreeSpaces() {
-        List<ParkingSpace> expected = List.of(new ParkingSpace());
-        Mockito.when(parkingSpaceRepository.findByStatus("FREE")).thenReturn(expected);
+        List<ParkingSpace> expected = List.of(new ParkingSpace(ParkingSpace.Status.FREE));
+        Mockito.when(parkingSpaceRepository.findByStatus(ParkingSpace.Status.FREE)).thenReturn(expected);
 
         List<ParkingSpace> result = parkingService.getAllFreeSpaces();
 

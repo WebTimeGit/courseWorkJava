@@ -5,17 +5,21 @@ import com.parking.management.entities.User;
 import com.parking.management.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
 @Service
 public class UserService {
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
     private final UserRepository userRepository;
     private final JwtTokenService jwtTokenService;
 
 
     @Autowired
-    public UserService(UserRepository userRepository , JwtTokenService jwtTokenService) {
+    public UserService(UserRepository userRepository, JwtTokenService jwtTokenService) {
         this.userRepository = userRepository;
         this.jwtTokenService = jwtTokenService;
     }
@@ -35,5 +39,13 @@ public class UserService {
         user.setUsername(userProfile.getUsername());
         user.setEmail(userProfile.getEmail());
         userRepository.save(user);
+    }
+
+    public boolean isAdmin(String token) {
+        String role = jwtTokenService.getRoleFromToken(token);
+        logger.info("Role from token: " + role); // Логування ролі
+        boolean isAdmin = "ADMIN".equals(role);
+        logger.info("Is admin: " + isAdmin); // Логування результату перевірки
+        return isAdmin;
     }
 }

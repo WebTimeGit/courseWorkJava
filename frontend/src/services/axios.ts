@@ -1,5 +1,5 @@
-import axios from "axios";
-import {appConfig} from "@/config";
+import axios from 'axios';
+import { appConfig } from '@/config';
 
 export const api = axios.create({
 	baseURL: appConfig.apiUrl,
@@ -9,7 +9,7 @@ export const api = axios.create({
 	}
 });
 
-export  const loggedAxios = axios.create({
+export const loggedAxios = axios.create({
 	baseURL: appConfig.apiUrl,
 	headers: {
 		accept: 'application/json',
@@ -18,12 +18,11 @@ export  const loggedAxios = axios.create({
 });
 
 loggedAxios.interceptors.request.use((config) => {
-	const token = localStorage.getItem("token");
+	const token = localStorage.getItem('token');
 	if (token) {
-		config.headers.Authorization = `Bearer ${token}`;
+		config.headers.Authorization = `Bearer ${token.trim()}`;
 	}
 	return config;
 });
 
-
-export const fetcher = (url:string) => loggedAxios.get(url).then(res => res.data)
+export const fetcher = (url: string) => loggedAxios.get(url).then(res => res.data);

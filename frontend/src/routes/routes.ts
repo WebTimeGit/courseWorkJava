@@ -15,7 +15,8 @@ export const ROUTES = {
 	users: {
 		profile: (id: string | number | undefined) =>
 			id ? '/profile/' + id : '/profile',
-	}
+	},
+	settings: '/settings'
 }
 
 
@@ -24,4 +25,5 @@ export const openRoutes = [
 	{ path: ROUTES.auth.login, type: RouteType.exact },
 	{ path: ROUTES.auth.registration, type: RouteType.exact },
 	{ path: 'profile/[userId]', type: RouteType.withId },
+	{ path: ROUTES.settings, type: RouteType.exact },
 ];

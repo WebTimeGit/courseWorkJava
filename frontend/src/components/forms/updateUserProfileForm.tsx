@@ -68,7 +68,6 @@ export const UpdateUserProfileForm = () => {
 					name="email"
 					value={formData.email || ''}
 					onChange={handleChange}
-					required
 					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				/>
 			</div>
@@ -80,7 +79,6 @@ export const UpdateUserProfileForm = () => {
 					name="username"
 					value={formData.username || ''}
 					onChange={handleChange}
-					required
 					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 				/>
 			</div>

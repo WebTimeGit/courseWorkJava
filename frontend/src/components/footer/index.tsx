@@ -8,7 +8,7 @@ export const Footer = () => {
 
 
 	return (
-		<footer className={classNames('text-center p-4 mt-8', styles.footer)}>
+		<footer className={classNames('text-center p-4', styles.footer)}>
 			<Container >
 				<p className="text-sm">
 					&copy; {currentYear} WebTime. Всі права захищені.

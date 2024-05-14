@@ -4,11 +4,13 @@
 .layout {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	height: 100vh;
 	background: $primary-background;
 	color: $primary-color;
+	overflow: hidden;
 }
 
 .main {
 	flex-grow: 1;
+	overflow-y: auto;
 }

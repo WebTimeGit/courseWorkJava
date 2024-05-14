@@ -1,0 +1,7 @@
+logging:
+  level:
+    root: info
+    com.parking.management: debug
+  file:
+    name: logs/spring-boot-application.log
+    path: logs
