@@ -23,7 +23,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
-    public ResponseEntity<ErrorResponseDTO> handleAccessDeniedException(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorResponseDTO> handleAccessDeniedException(org.springframework.security.access.AccessDeniedException ex, WebRequest request) {
         logger.error("Access Denied Exception: ", ex);
         ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.FORBIDDEN.value(), "Access Denied: " + ex.getMessage(), System.currentTimeMillis());
         return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);

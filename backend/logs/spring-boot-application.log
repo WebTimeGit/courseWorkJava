@@ -4933,3 +4933,434 @@ This generated password is for development use only. Your security configuration
 2024-05-16 02:13:02 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
 2024-05-16 02:13:02 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
 2024-05-16 02:13:02 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:13:48 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:13:48 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 29020 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:13:48 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:13:48 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:13:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:13:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:13:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:13:49 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:13:49 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:13:49 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:13:49 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:13:49 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 748 ms
+2024-05-16 02:13:49 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@62d40e31, com.mongodb.Jep395RecordCodecProvider@650aa077, com.mongodb.KotlinCodecProvider@7ce29a2d]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:13:49 [cluster-ClusterId{value='664541ad726cd829e69bbb38', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13107000}
+2024-05-16 02:13:49 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 8c6cc3e7-ca01-44f2-993a-b517852727f1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:13:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@37bda983, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@284d4885, org.springframework.security.web.context.SecurityContextHolderFilter@36238b12, org.springframework.security.web.header.HeaderWriterFilter@1282f784, org.springframework.web.filter.CorsFilter@1201e064, org.springframework.security.web.authentication.logout.LogoutFilter@77c692b4, com.parking.management.security.JwtAuthenticationFilter@a69f9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41938e1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d2e6f62, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a8dcfbb, org.springframework.security.web.access.ExceptionTranslationFilter@63262071, org.springframework.security.web.access.intercept.AuthorizationFilter@7d6c4079]
+2024-05-16 02:13:50 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:13:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:13:50 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.713 seconds (process running for 2.275)
+2024-05-16 02:13:53 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:13:53 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:13:53 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-16 02:13:53 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:13:53 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:13:53 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:13:53 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:13:53 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:13:53 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:13:53 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:13:53 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:13:57 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:13:57 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:13:57 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:13:57 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:13:57 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:13:57 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:13:57 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:13:57 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:13:59 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:13:59 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:13:59 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:13:59 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+2024-05-16 02:13:59 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-05-16 02:13:59 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-05-16 02:13:59 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-05-16 02:15:56 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:15:56 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 30904 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:15:56 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:15:56 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:15:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:15:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:15:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:15:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:15:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:15:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:15:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:15:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 774 ms
+2024-05-16 02:15:57 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@1a9ec80e, com.mongodb.Jep395RecordCodecProvider@7fd4e815, com.mongodb.KotlinCodecProvider@5f6b53ed]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:15:57 [cluster-ClusterId{value='6645422d3128bb080a526119', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=14055000}
+2024-05-16 02:15:57 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: a84cd3bd-fba9-4265-8e39-53ce527d4b5e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:15:57 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7d6c4079, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@606b53a3, org.springframework.security.web.context.SecurityContextHolderFilter@1282f784, org.springframework.security.web.header.HeaderWriterFilter@10b87ff6, org.springframework.web.filter.CorsFilter@432c0f1, org.springframework.security.web.authentication.logout.LogoutFilter@7b3a6e95, com.parking.management.security.JwtAuthenticationFilter@37bda983, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13e1e816, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36238b12, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@284d4885, org.springframework.security.web.access.ExceptionTranslationFilter@135e49b2, org.springframework.security.web.access.intercept.AuthorizationFilter@55e91e61]
+2024-05-16 02:15:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:15:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:15:57 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.793 seconds (process running for 2.307)
+2024-05-16 02:16:00 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:16:00 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:16:00 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-16 02:16:00 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:16:00 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:16:00 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:16:00 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTM0NjAsImV4cCI6MTcxNTgxNzA2MH0.XabCZejKVA9eC_WYLUpTF0zr4KD-ezvFuN5oEFHBvDs
+2024-05-16 02:16:00 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:16:00 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:16:00 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:16:00 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:16:07 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/auth/login/
+2024-05-16 02:16:07 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/auth/login/
+2024-05-16 02:16:07 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/auth/login/
+2024-05-16 02:16:07 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-05-16 02:16:07 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:16:07 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:07 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:16:07 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:16:11 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:16:11 [http-nio-8081-exec-6] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:11 [http-nio-8081-exec-6] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:16:11 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:16:14 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:16:14 [http-nio-8081-exec-7] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:14 [http-nio-8081-exec-7] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:16:14 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/admin/parkingspaces/create
+2024-05-16 02:16:14 [http-nio-8081-exec-7] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:14 [http-nio-8081-exec-7] INFO  c.p.m.services.JwtTokenService - Role from token: ADMIN
+2024-05-16 02:16:14 [http-nio-8081-exec-7] INFO  c.p.management.services.UserService - Role from token: ADMIN
+2024-05-16 02:16:14 [http-nio-8081-exec-7] INFO  c.p.management.services.UserService - Is admin: true
+2024-05-16 02:16:14 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:16:14 [http-nio-8081-exec-8] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:14 [http-nio-8081-exec-8] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:16:14 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:16:17 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/admin/parkingspaces/delete/9
+2024-05-16 02:16:17 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/admin/parkingspaces/delete/9
+2024-05-16 02:16:17 [http-nio-8081-exec-10] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:17 [http-nio-8081-exec-10] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:16:17 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/admin/parkingspaces/delete/9
+2024-05-16 02:16:17 [http-nio-8081-exec-10] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:17 [http-nio-8081-exec-10] INFO  c.p.m.services.JwtTokenService - Role from token: ADMIN
+2024-05-16 02:16:17 [http-nio-8081-exec-10] INFO  c.p.management.services.UserService - Role from token: ADMIN
+2024-05-16 02:16:17 [http-nio-8081-exec-10] INFO  c.p.management.services.UserService - Is admin: true
+2024-05-16 02:16:17 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:16:17 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:16:17 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:16:17 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:20:00 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:20:00 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/users/userInfo/
+2024-05-16 02:20:00 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:20:00 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:20:00 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:20:00 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:20:00 [http-nio-8081-exec-6] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:20:00 [http-nio-8081-exec-6] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:20:00 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:20:05 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:20:05 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:20:05 [http-nio-8081-exec-7] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:20:05 [http-nio-8081-exec-8] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE1ODE0OTY3LCJleHAiOjE3MTU4MTg1Njd9.t3yhZJYlObeoI2fxC0WR27kIyHh6xLP9f5lNdOcNf-Q
+2024-05-16 02:20:05 [http-nio-8081-exec-8] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:20:05 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:20:05 [http-nio-8081-exec-7] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor72@gmail.com with role: ADMIN
+2024-05-16 02:20:05 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:20:30 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/auth/login/
+2024-05-16 02:20:30 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/auth/login/
+2024-05-16 02:20:30 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-05-16 02:20:30 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:20:30 [http-nio-8081-exec-10] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:20:30 [http-nio-8081-exec-10] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:20:30 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:20:32 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:20:32 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:20:32 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:20:32 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:20:34 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:20:34 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:20:34 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:20:34 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:20:34 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:20:34 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:20:34 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:20:34 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:20:35 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:20:35 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:20:35 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:20:35 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+2024-05-16 02:20:35 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-05-16 02:20:35 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-05-16 02:20:35 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-05-16 02:22:46 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:22:46 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 29784 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:22:46 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:22:46 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:22:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:22:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:22:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:22:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:22:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:22:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:22:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:22:47 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 725 ms
+2024-05-16 02:22:47 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@5eb0a686, com.mongodb.Jep395RecordCodecProvider@73608eb0, com.mongodb.KotlinCodecProvider@67f9cb52]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:22:47 [cluster-ClusterId{value='664543c7b64af94f003fe328', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13549200}
+2024-05-16 02:22:47 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f7af0945-0386-4b22-a1f6-32a2e6d4767c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:22:47 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d235635, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cc7e3ad, org.springframework.security.web.context.SecurityContextHolderFilter@4f402027, org.springframework.security.web.header.HeaderWriterFilter@353b0719, org.springframework.web.filter.CorsFilter@5dd6a4c8, org.springframework.security.web.authentication.logout.LogoutFilter@58e02359, com.parking.management.security.JwtAuthenticationFilter@47be41c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c226095, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ea07516, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@608b35fa, org.springframework.security.web.access.ExceptionTranslationFilter@50bf795f, org.springframework.security.web.access.intercept.AuthorizationFilter@1aed6f0b]
+2024-05-16 02:22:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:22:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:22:47 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.676 seconds (process running for 2.21)
+2024-05-16 02:22:51 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:22:51 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:22:51 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-05-16 02:22:51 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:22:51 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:22:51 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:22:51 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:22:51 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:22:51 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:22:51 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:22:51 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:22:54 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:22:54 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:22:54 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:22:54 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+2024-05-16 02:22:54 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-05-16 02:22:54 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-05-16 02:22:54 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-05-16 02:23:30 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:23:30 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:23:30 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:23:30 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:23:30 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:23:30 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:23:30 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:23:30 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:24:50 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:24:50 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 8932 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:24:50 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:24:50 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:24:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:24:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:24:51 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:24:51 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:24:51 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:24:51 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:24:51 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:24:51 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 720 ms
+2024-05-16 02:24:51 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@1a9ec80e, com.mongodb.Jep395RecordCodecProvider@7fd4e815, com.mongodb.KotlinCodecProvider@5f6b53ed]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:24:51 [cluster-ClusterId{value='6645444330607b0cab1c998d', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=15640800}
+2024-05-16 02:24:51 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: c8fed536-579b-4ed2-ac7e-8ba659be0677
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:24:51 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67a0ff25, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55e91e61, org.springframework.security.web.context.SecurityContextHolderFilter@5bb97fe7, org.springframework.security.web.header.HeaderWriterFilter@708769b7, org.springframework.web.filter.CorsFilter@166e5a6d, org.springframework.security.web.authentication.logout.LogoutFilter@5dd6a4c8, com.parking.management.security.JwtAuthenticationFilter@1d55dd21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63262071, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2d4f67e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d6c4079, org.springframework.security.web.access.ExceptionTranslationFilter@1716c037, org.springframework.security.web.access.intercept.AuthorizationFilter@674aa626]
+2024-05-16 02:24:51 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:24:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:24:52 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.712 seconds (process running for 2.265)
+2024-05-16 02:24:54 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:24:54 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:24:54 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-16 02:24:54 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:24:54 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:24:54 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:24:54 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:24:54 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:24:54 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:24:54 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:24:54 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:24:57 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:24:57 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:24:57 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:24:57 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+2024-05-16 02:24:57 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-05-16 02:24:57 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-05-16 02:24:57 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-05-16 02:25:25 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:25:25 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:25:25 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:25:25 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:25:25 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:25:25 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:25:25 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:25:25 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:27:15 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:27:15 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 27368 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:27:15 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:27:15 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:27:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:27:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:27:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:27:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:27:16 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:27:16 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:27:16 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:27:16 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 772 ms
+2024-05-16 02:27:16 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@77524ca7, com.mongodb.Jep395RecordCodecProvider@11df2829, com.mongodb.KotlinCodecProvider@18e4674d]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:27:16 [cluster-ClusterId{value='664544d489aaee023312e810', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=20143800}
+2024-05-16 02:27:17 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d461c9ec-3275-46a1-866b-8057519453fe
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:27:17 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@37bda983, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@284d4885, org.springframework.security.web.context.SecurityContextHolderFilter@36238b12, org.springframework.security.web.header.HeaderWriterFilter@1282f784, org.springframework.web.filter.CorsFilter@1201e064, org.springframework.security.web.authentication.logout.LogoutFilter@77c692b4, com.parking.management.security.JwtAuthenticationFilter@a69f9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41938e1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d2e6f62, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a8dcfbb, org.springframework.security.web.access.ExceptionTranslationFilter@63262071, org.springframework.security.web.access.intercept.AuthorizationFilter@7d6c4079]
+2024-05-16 02:27:17 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:27:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:27:17 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.713 seconds (process running for 2.256)
+2024-05-16 02:27:32 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:27:32 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:27:32 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-16 02:27:32 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:27:32 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/parkingspaces/getAll
+2024-05-16 02:27:32 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:27:32 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:27:32 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:27:32 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:27:32 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:27:32 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:27:32 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:27:35 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:27:35 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:27:35 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:00 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:28:00 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:28:00 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:00 [http-nio-8081-exec-6] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:00 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:00 [http-nio-8081-exec-6] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:00 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:28:00 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:28:04 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:28:04 [http-nio-8081-exec-7] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:04 [http-nio-8081-exec-7] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:22 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:28:22 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 2204 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:28:22 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:28:22 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:28:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:28:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:28:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:28:23 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:28:23 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:28:23 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:28:23 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:28:23 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 780 ms
+2024-05-16 02:28:23 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@5b733ef7, com.mongodb.Jep395RecordCodecProvider@43a4a9e5, com.mongodb.KotlinCodecProvider@764fffa0]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:28:23 [cluster-ClusterId{value='66454517d213e21af19e45e4', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=21160200}
+2024-05-16 02:28:23 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 59a10a36-de42-4f1b-bb04-012e3ad02af4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:28:23 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@a69f9d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a8dcfbb, org.springframework.security.web.context.SecurityContextHolderFilter@5d2e6f62, org.springframework.security.web.header.HeaderWriterFilter@36238b12, org.springframework.web.filter.CorsFilter@1846ad0f, org.springframework.security.web.authentication.logout.LogoutFilter@8ac512e, com.parking.management.security.JwtAuthenticationFilter@5597ca3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@733fae8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a8d676e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31b741e2, org.springframework.security.web.access.ExceptionTranslationFilter@41167ded, org.springframework.security.web.access.intercept.AuthorizationFilter@37bda983]
+2024-05-16 02:28:23 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:28:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:28:23 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.808 seconds (process running for 2.401)
+2024-05-16 02:28:25 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:28:25 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:28:25 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-16 02:28:25 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:28:25 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:28:25 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:25 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:25 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:25 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:25 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:28:25 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:28:28 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:28:28 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:28 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:49 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:28:49 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:28:49 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:49 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:28:49 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:49 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:28:49 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:28:49 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:29:56 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-16 02:29:56 [main] INFO  c.p.m.ParkingSystemApplication - Starting ParkingSystemApplication using Java 20.0.2 with PID 20604 (E:\Learn\university\java\сoursework\backend\target\classes started by webMachine in E:\Learn\university\java\сoursework\backend)
+2024-05-16 02:29:56 [main] DEBUG c.p.m.ParkingSystemApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-16 02:29:56 [main] INFO  c.p.m.ParkingSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-16 02:29:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-16 02:29:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 MongoDB repository interfaces.
+2024-05-16 02:29:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-05-16 02:29:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:29:57 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-16 02:29:57 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-16 02:29:57 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-16 02:29:57 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 767 ms
+2024-05-16 02:29:57 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/20.0.2+9-78"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3e28d779, com.mongodb.Jep395RecordCodecProvider@15214920, com.mongodb.KotlinCodecProvider@784d9bc]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-16 02:29:57 [cluster-ClusterId{value='66454575f6ae7c5eacb2af9a', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=14450700}
+2024-05-16 02:29:57 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3babb80e-498a-408b-99a4-0ca9288c3fc5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-16 02:29:58 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@37e55819, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bdcfcf, org.springframework.security.web.context.SecurityContextHolderFilter@77a2688d, org.springframework.security.web.header.HeaderWriterFilter@13a268cd, org.springframework.web.filter.CorsFilter@6248cfab, org.springframework.security.web.authentication.logout.LogoutFilter@3d6778d5, com.parking.management.security.JwtAuthenticationFilter@5871a482, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5fa0141f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6caeba36, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45c90a05, org.springframework.security.web.access.ExceptionTranslationFilter@47be41c6, org.springframework.security.web.access.intercept.AuthorizationFilter@6b8bdcc6]
+2024-05-16 02:29:58 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-05-16 02:29:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-05-16 02:29:58 [main] INFO  c.p.m.ParkingSystemApplication - Started ParkingSystemApplication in 1.729 seconds (process running for 2.287)
+2024-05-16 02:29:59 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-16 02:29:59 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-16 02:29:59 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-16 02:29:59 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:29:59 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:30:00 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:00 [http-nio-8081-exec-2] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:00 [http-nio-8081-exec-2] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:00 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:00 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:30:00 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:30:01 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:30:01 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:30:01 [http-nio-8081-exec-3] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:01 [http-nio-8081-exec-4] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:01 [http-nio-8081-exec-3] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:01 [http-nio-8081-exec-4] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:01 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:30:01 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:30:03 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/admin/parkingspaces/create
+2024-05-16 02:30:03 [http-nio-8081-exec-5] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:03 [http-nio-8081-exec-5] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:36 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:30:36 [http-nio-8081-exec-6] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:36 [http-nio-8081-exec-6] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:36 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:30:36 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:30:36 [http-nio-8081-exec-7] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:36 [http-nio-8081-exec-7] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:36 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:30:51 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:30:51 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:30:51 [http-nio-8081-exec-9] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:51 [http-nio-8081-exec-8] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:30:51 [http-nio-8081-exec-8] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:51 [http-nio-8081-exec-9] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:30:51 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:30:51 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
+2024-05-16 02:31:07 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/parkingspaces/getAll
+2024-05-16 02:31:07 [http-nio-8081-exec-10] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:31:07 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/users/userInfo/
+2024-05-16 02:31:07 [http-nio-8081-exec-1] INFO  c.p.m.services.JwtTokenService - Decoding token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVvZG9yNzNAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MTUyMzAsImV4cCI6MTcxNTgxODgzMH0.wncCo_dn5WyIGeSkmWcsySlu3_121IxcvxYHXqhdRwE
+2024-05-16 02:31:07 [http-nio-8081-exec-10] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:31:07 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/parkingspaces/getAll
+2024-05-16 02:31:07 [http-nio-8081-exec-1] INFO  c.p.m.s.JwtAuthenticationFilter - Authenticated user: testteodor73@gmail.com with role: USER
+2024-05-16 02:31:07 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/users/userInfo/
