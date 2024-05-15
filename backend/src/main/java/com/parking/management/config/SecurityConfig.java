@@ -25,12 +25,10 @@ public class SecurityConfig {
             .csrf().disable() // Вимкнення CSRF, якщо він не використовується
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/parkingspaces").hasRole("ADMIN") // Дозволяє доступ лише користувачам з роллю "ADMIN"
+                .requestMatchers("/api/admin/**").hasRole("ADMIN") // Дозволяє доступ лише користувачам з роллю "ADMIN"
                 .anyRequest().authenticated()
             )
-            // Додати фільтр JWT перед обробкою запиту логіну
             .addFilterBefore(new JwtAuthenticationFilter(jwtTokenService), UsernamePasswordAuthenticationFilter.class);
-
 
         return http.build();
     }

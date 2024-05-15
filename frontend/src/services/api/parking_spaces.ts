@@ -1,8 +1,8 @@
 export const PARKING_SPACES = {
-	create: '/api/parkingspaces',
-	delete: '/api/parkingspaces',
-	update: '/api/parkingspaces',
-	getAll: '/api/parkingspaces',
+	create: '/api/admin/parkingspaces/create',
+	delete: '/api/admin/parkingspaces/delete',
+	update: '/api/parkingspaces/update',
+	getAll: '/api/parkingspaces/getAll',
 	getCount: '/api/parkingspaces/count',
 	getById: (id: number) => `/api/parkingspaces/${id}`,
 }

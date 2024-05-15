@@ -4,4 +4,6 @@ logging:
     com.parking.management: debug
   file:
     name: logs/spring-boot-application.log
-    path: logs
+
+jwt:
+  secret: 96ZlNPT7FGvFH6bjyET21JWSWM9yrtQ+ozDVvfYPaW8=

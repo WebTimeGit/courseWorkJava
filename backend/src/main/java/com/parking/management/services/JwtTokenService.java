@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,17 @@ import java.util.Date;
 @Service
 public class JwtTokenService {
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenService.class);
-    private final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Генерація безпечного ключа
+
+    private final SecretKey secretKey;
+
+    @Value("${jwt.secret}")
+    private String jwtSecret;
+
+    public JwtTokenService(@Value("${jwt.secret}") String jwtSecret) {
+        this.jwtSecret = jwtSecret;
+        this.secretKey = Keys.hmacShaKeyFor(jwtSecret.getBytes()); // Використовуємо секретний ключ із конфігурації
+    }
+
     private final long validityInMilliseconds = 3600000; // 1 година
 
     public String createToken(String username, String role) {
@@ -28,7 +39,7 @@ public class JwtTokenService {
                 .setClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(validity)
-                .signWith(secretKey)
+                .signWith(secretKey, SignatureAlgorithm.HS256)
                 .compact();
     }
 
@@ -46,6 +57,7 @@ public class JwtTokenService {
             Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token.trim());
             return true;
         } catch (Exception e) {
+            logger.error("Token validation error", e);
             return false;
         }
     }
