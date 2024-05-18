@@ -2,21 +2,30 @@ package com.parking.management.dto;
 
 public class ParkingSpaceUpdateDTO {
     private String status;
+    private String serviceReason;
 
-    // Конструктор без параметрів (потрібен для десеріалізації)
+    // Конструктори
     public ParkingSpaceUpdateDTO() {}
 
-    // Конструктор з параметрами
-    public ParkingSpaceUpdateDTO(String status) {
+    public ParkingSpaceUpdateDTO(String status, String serviceReason) {
         this.status = status;
+        this.serviceReason = serviceReason;
     }
 
-    // Геттер і сеттер
+    // Геттери та сеттери
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getServiceReason() {
+        return serviceReason;
+    }
+
+    public void setServiceReason(String serviceReason) {
+        this.serviceReason = serviceReason;
     }
 }

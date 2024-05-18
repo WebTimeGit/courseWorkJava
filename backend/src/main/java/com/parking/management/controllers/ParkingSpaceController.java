@@ -77,16 +77,17 @@ public class ParkingSpaceController {
             ParkingSpace parkingSpace = parkingSpaceOptional.get();
             if (parkingSpace.getStatus() == ParkingSpace.Status.FREE) {
                 parkingSpace.setStatus(ParkingSpace.Status.OCCUPIED);
-                parkingSpaceService.save(parkingSpace);
-
                 Optional<User> userOptional = userService.getUserByEmail(email);
                 if (!userOptional.isPresent()) {
                     ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.NOT_FOUND.value(), "User not found for email: " + email, System.currentTimeMillis());
                     return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
                 }
+                User user = userOptional.get();
+                parkingSpace.setOccupiedByUserId(user.getId()); // Зберігаємо ID користувача, який зайняв паркомісце
+                parkingSpaceService.save(parkingSpace);
 
                 ParkingHistory parkingHistory = new ParkingHistory(
-                        userOptional.get().getId(),
+                        user.getId(),
                         parkingSpace.getId(),
                         LocalDateTime.now(),
                         null
@@ -117,30 +118,31 @@ public class ParkingSpaceController {
             return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
         }
 
-        String currentRole = authentication.getAuthorities().iterator().next().getAuthority();
         String email = authentication.getName();
-        if (!"ROLE_USER".equals(currentRole)) {
-            logger.error("User does not have the necessary role. Role found: " + currentRole);
-            ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.FORBIDDEN.value(), "Forbidden: Only users can release parking spaces.", System.currentTimeMillis());
-            return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
+        Optional<User> userOptional = userService.getUserByEmail(email);
+        if (!userOptional.isPresent()) {
+            ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.NOT_FOUND.value(), "User not found for email: " + email, System.currentTimeMillis());
+            return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
         }
 
+        User user = userOptional.get();
         Optional<ParkingSpace> parkingSpaceOptional = parkingSpaceService.findById(id);
         if (parkingSpaceOptional.isPresent()) {
             ParkingSpace parkingSpace = parkingSpaceOptional.get();
             if (parkingSpace.getStatus() == ParkingSpace.Status.OCCUPIED) {
-                parkingSpace.setStatus(ParkingSpace.Status.FREE);
-                parkingSpaceService.save(parkingSpace);
-
-                Optional<User> userOptional = userService.getUserByEmail(email);
-                if (!userOptional.isPresent()) {
-                    ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.NOT_FOUND.value(), "User not found for email: " + email, System.currentTimeMillis());
-                    return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+                if (parkingSpace.getOccupiedByUserId() == null || !parkingSpace.getOccupiedByUserId().equals(user.getId())) {
+                    ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.FORBIDDEN.value(), "Forbidden: You did not occupy this parking space.", System.currentTimeMillis());
+                    logger.error("User did not occupy parking space ID: " + id);
+                    return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
                 }
 
-                List<ParkingHistory> userParkingHistory = parkingService.getParkingHistoryByUserId(userOptional.get().getId());
+                parkingSpace.setStatus(ParkingSpace.Status.FREE);
+                parkingSpace.setOccupiedByUserId(null);
+                parkingSpaceService.save(parkingSpace);
+
+                List<ParkingHistory> userParkingHistory = parkingService.getParkingHistoryByUserId(user.getId());
                 ParkingHistory latestHistory = userParkingHistory.stream()
-                        .filter(ph -> ph.getParkingSpaceId() == parkingSpace.getId() && ph.getEndTime() == null)
+                        .filter(ph -> ph.getParkingSpaceId().equals(parkingSpace.getId()) && ph.getEndTime() == null)
                         .findFirst()
                         .orElseThrow(() -> new RuntimeException("No active parking history found for the user"));
 

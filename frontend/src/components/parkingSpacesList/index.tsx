@@ -3,10 +3,15 @@ import useSWR from 'swr';
 import { fetcher } from '@/services/axios';
 import { API } from '@/services/api/api';
 import {ParkingSpace, ParkingCount} from "@/services/api/parking_spaces";
+import {useAuthContext} from "@/context/authContext";
 
 
 export const ParkingSpacesList: React.FC = () => {
-	const { data: parkingSpace, error: parkingSpaceError } = useSWR<ParkingSpace[]>(API.PARKING_SPACES.getAll, fetcher);
+	const { userData } = useAuthContext()
+
+	const { data: parkingSpace, error: parkingSpaceError } = useSWR<ParkingSpace[]>(
+		userData?.role === 'USER' ? API.PARKING_SPACES.getAllForUser : API.PARKING_SPACES.getAllForAdmin, fetcher
+	);
 	const { data: parkingSpaceCount, error: parkingSpaceCountError } = useSWR<ParkingCount>(API.PARKING_SPACES.count, fetcher);
 
 	if (parkingSpaceError) return <div>Failed to load parking spaces</div>;

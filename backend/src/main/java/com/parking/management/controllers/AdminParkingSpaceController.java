@@ -1,5 +1,6 @@
 package com.parking.management.controllers;
 
+import com.parking.management.dto.AdminParkingSpaceDTO;
 import com.parking.management.dto.ErrorResponseDTO;
 import com.parking.management.dto.ParkingHistoryDTO;
 import com.parking.management.dto.ParkingSpaceCreateDTO;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -38,6 +40,27 @@ public class AdminParkingSpaceController {
         this.parkingSpaceService = parkingSpaceService;
         this.userService = userService;
         this.parkingService = parkingService;
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<AdminParkingSpaceDTO>> getAllParkingSpaces() {
+        List<AdminParkingSpaceDTO> parkingSpaces = parkingSpaceService.findAll().stream()
+                .map(space -> {
+                    Optional<User> userOptional = userService.findById(space.getOccupiedByUserId());
+                    String username = userOptional.map(User::getUsername).orElse(null);
+                    String email = userOptional.map(User::getEmail).orElse(null);
+                    return new AdminParkingSpaceDTO(
+                            space.getId(),
+                            space.getStatus(),
+                            space.getOccupiedByUserId(),
+                            username,
+                            email,
+                            space.getServiceByAdminId(),
+                            space.getServiceReason()
+                    );
+                })
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(parkingSpaces);
     }
 
     @PostMapping("/create")
@@ -63,7 +86,7 @@ public class AdminParkingSpaceController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateParkingSpace(@PathVariable Long id, @RequestBody ParkingSpaceUpdateDTO parkingSpaceUpdateDTO) {
+    public ResponseEntity<?> updateParkingSpace(@RequestHeader("Authorization") String token, @PathVariable Long id, @RequestBody ParkingSpaceUpdateDTO parkingSpaceUpdateDTO) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null) {
             logger.error("No authentication found in SecurityContextHolder");
@@ -83,10 +106,58 @@ public class AdminParkingSpaceController {
         Optional<ParkingSpace> parkingSpaceOptional = parkingSpaceService.findById(id);
         if (parkingSpaceOptional.isPresent()) {
             ParkingSpace existingParkingSpace = parkingSpaceOptional.get();
-            existingParkingSpace.setStatus(ParkingSpace.Status.valueOf(parkingSpaceUpdateDTO.getStatus()));
+            ParkingSpace.Status oldStatus = existingParkingSpace.getStatus();
+            ParkingSpace.Status newStatus = ParkingSpace.Status.valueOf(parkingSpaceUpdateDTO.getStatus());
+            existingParkingSpace.setStatus(newStatus);
+
+            if (newStatus == ParkingSpace.Status.FREE) {
+                if (oldStatus == ParkingSpace.Status.OCCUPIED) {
+                    // Оновлення часу звільнення у історії паркування
+                    List<ParkingHistory> parkingHistoryList = parkingService.getParkingHistoryByParkingSpaceId(existingParkingSpace.getId());
+                    Optional<ParkingHistory> latestHistoryOptional = parkingHistoryList.stream()
+                            .filter(ph -> ph.getEndTime() == null)
+                            .findFirst();
+
+                    if (latestHistoryOptional.isPresent()) {
+                        ParkingHistory latestHistory = latestHistoryOptional.get();
+                        latestHistory.setEndTime(LocalDateTime.now());
+                        parkingService.updateParkingHistoryEndTime(latestHistory);
+                    }
+                }
+                existingParkingSpace.setOccupiedByUserId(null);
+                existingParkingSpace.setServiceByAdminId(null);
+                existingParkingSpace.setServiceReason(null);
+            } else if (newStatus == ParkingSpace.Status.SERVICE) {
+                if (token != null && token.startsWith("Bearer ")) {
+                    token = token.substring(7);
+                    existingParkingSpace.setServiceReason(parkingSpaceUpdateDTO.getServiceReason());
+                    existingParkingSpace.setServiceByAdminId(userService.getUserFromToken(token).orElseThrow(() -> new RuntimeException("Admin user not found")).getId());
+                }
+            } else if (newStatus == ParkingSpace.Status.OCCUPIED && oldStatus == ParkingSpace.Status.SERVICE) {
+                if (token != null && token.startsWith("Bearer ")) {
+                    token = token.substring(7);
+                    existingParkingSpace.setOccupiedByUserId(userService.getUserFromToken(token).orElseThrow(() -> new RuntimeException("User not found")).getId());
+                }
+            }
+
             ParkingSpace updatedParkingSpace = parkingSpaceService.save(existingParkingSpace);
             logger.info("Parking space updated successfully: " + updatedParkingSpace);
-            return ResponseEntity.ok(updatedParkingSpace);
+
+            Optional<User> userOptional = userService.findById(existingParkingSpace.getOccupiedByUserId());
+            String username = userOptional.map(User::getUsername).orElse(null);
+            String email = userOptional.map(User::getEmail).orElse(null);
+
+            AdminParkingSpaceDTO adminParkingSpaceDTO = new AdminParkingSpaceDTO(
+                    updatedParkingSpace.getId(),
+                    updatedParkingSpace.getStatus(),
+                    updatedParkingSpace.getOccupiedByUserId(),
+                    username,
+                    email,
+                    updatedParkingSpace.getServiceByAdminId(),
+                    updatedParkingSpace.getServiceReason()
+            );
+
+            return ResponseEntity.ok(adminParkingSpaceDTO);
         } else {
             logger.error("Parking space not found for ID: " + id);
             ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.NOT_FOUND.value(), "Parking space not found for ID: " + id, System.currentTimeMillis());

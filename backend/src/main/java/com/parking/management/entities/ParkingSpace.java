@@ -8,12 +8,16 @@ public class ParkingSpace {
     @Id
     private long id;
     private Status status;
+    private Long occupiedByUserId;
+    private Long serviceByAdminId;
+    private String serviceReason;
 
     public static final String SEQUENCE_NAME = "parking_space_seq";
 
     public enum Status {
         OCCUPIED,
-        FREE
+        FREE,
+        SERVICE
     }
 
     // Конструктори
@@ -38,5 +42,29 @@ public class ParkingSpace {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Long getOccupiedByUserId() {
+        return occupiedByUserId;
+    }
+
+    public void setOccupiedByUserId(Long occupiedByUserId) {
+        this.occupiedByUserId = occupiedByUserId;
+    }
+
+    public Long getServiceByAdminId() {
+        return serviceByAdminId;
+    }
+
+    public void setServiceByAdminId(Long serviceByAdminId) {
+        this.serviceByAdminId = serviceByAdminId;
+    }
+
+    public String getServiceReason() {
+        return serviceReason;
+    }
+
+    public void setServiceReason(String serviceReason) {
+        this.serviceReason = serviceReason;
     }
 }

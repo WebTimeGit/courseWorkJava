@@ -7,6 +7,7 @@ import {ParkingHistory} from "@/services/api/parking";
 
 export const ManageParkingSpacesForm: React.FC = () => {
 	const [status, setStatus] = useState<ParkingSpace['status']>('FREE');
+	const [updateStatusReason, setUpdateStatusReason] = useState('');
 	const [parkingSpaceId, setParkingSpaceId] = useState<number | string>('');
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
@@ -15,6 +16,9 @@ export const ManageParkingSpacesForm: React.FC = () => {
 
 	const handleChangeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
 		setStatus(e.target.value as ParkingSpace['status']);
+	};
+	const handleChangeUpdateStatusReason = (e: ChangeEvent<HTMLTextAreaElement>) => {
+		setUpdateStatusReason(e.target.value);
 	};
 	const handleChangeId = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
@@ -34,7 +38,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 
 			const response = await loggedAxios.post<ParkingSpace>(API.PARKING_SPACES.create, data);
 			console.log('Response:', response);
-			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.getAllForAdmin);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space created successfully!');
 		} catch (error: any) {
@@ -53,7 +57,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 		try {
 			await loggedAxios.delete(`${API.PARKING_SPACES.delete}/${parkingSpaceId}`);
 			console.log('Deleted parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.getAllForAdmin);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space deleted successfully!');
 		} catch (error: any) {
@@ -72,11 +76,12 @@ export const ManageParkingSpacesForm: React.FC = () => {
 		try {
 			const data: Partial<ParkingSpace> = {
 				status,
+				serviceReason: status === 'SERVICE' ? updateStatusReason : undefined,
 			};
 
 			await loggedAxios.put<ParkingSpace>(`${API.PARKING_SPACES.update}/${parkingSpaceId}`, data);
 			console.log('Updated parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.getAllForAdmin);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space updated successfully!');
 		} catch (error: any) {
@@ -86,6 +91,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
+
 	const handleReserve = async (e: FormEvent) => {
 		e.preventDefault();
 		setIsLoading(true);
@@ -95,7 +101,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 		try {
 			const response = await loggedAxios.post(`${API.PARKING.reserve}/${parkingSpaceId}`);
 			console.log('Reserved parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.getAllForUser);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space reserved successfully!');
 		} catch (error: any) {
@@ -114,7 +120,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 		try {
 			const response = await loggedAxios.post(`${API.PARKING.release}/${parkingSpaceId}`);
 			console.log('Released parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.getAllForUser);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space released successfully!');
 		} catch (error: any) {
@@ -124,6 +130,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
+
 	const handleHistory = async (e: FormEvent) => {
 		e.preventDefault();
 		setIsLoading(true);
@@ -141,7 +148,6 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
-
 	const handleHistorySpace = async (e: FormEvent) => {
 		e.preventDefault();
 		setIsLoading(true);
@@ -191,7 +197,20 @@ export const ManageParkingSpacesForm: React.FC = () => {
 					>
 						<option value="FREE">Free</option>
 						<option value="OCCUPIED">Occupied</option>
+						<option value="SERVICE">Service</option>
 					</select>
+					{status === 'SERVICE' && (
+						<div className="mb-4">
+							<label htmlFor="updateStatusReason" className="block text-sm font-bold mb-2">Reason for Service:</label>
+							<textarea
+								id="updateStatusReason"
+								name="updateStatusReason"
+								value={updateStatusReason}
+								onChange={handleChangeUpdateStatusReason}
+								className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							/>
+						</div>
+					)}
 				</div>
 
 				<button onClick={(e) => handleCreate(e)}

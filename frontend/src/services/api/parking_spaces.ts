@@ -1,6 +1,7 @@
 export const PARKING_SPACES = {
-	getAll: '/api/parkingspaces/getAll',
+	getAllForUser: '/api/parkingspaces/getAll',
 	count: '/api/parkingspaces/count',
+	getAllForAdmin: '/api/admin/parkingspaces/getAll',
 	create: '/api/admin/parkingspaces/create',
 	update: '/api/admin/parkingspaces/update',
 	delete: '/api/admin/parkingspaces/delete',
@@ -10,7 +11,8 @@ export const PARKING_SPACES = {
 
 export interface ParkingSpace {
 	id: number;
-	status: 'FREE' | 'OCCUPIED';
+	status: 'FREE' | 'OCCUPIED' | 'SERVICE';
+	serviceReason?: string
 }
 
 export interface ParkingCount {
