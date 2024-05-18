@@ -22,7 +22,6 @@ public class JwtTokenService {
     private String jwtSecret;
 
     public JwtTokenService(@Value("${jwt.secret}") String jwtSecret) {
-        this.jwtSecret = jwtSecret;
         this.secretKey = Keys.hmacShaKeyFor(jwtSecret.getBytes()); // Використовуємо секретний ключ із конфігурації
     }
 
@@ -63,13 +62,20 @@ public class JwtTokenService {
     }
 
     public String getUsernameFromToken(String token) {
-        return Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token.trim()).getBody().getSubject();
+        Claims claims = Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token.trim()).getBody();
+        if (claims != null) {
+            return claims.getSubject();
+        }
+        return null;
     }
 
     public String getRoleFromToken(String token) {
         Claims claims = getClaimsFromToken(token.trim());
-        String role = (String) claims.get("role");
-        logger.info("Role from token: " + role); // Логування ролі
-        return role;
+        if (claims != null) {
+            String role = (String) claims.get("role");
+            logger.info("Role from token: " + role); // Логування ролі
+            return role;
+        }
+        return null;
     }
 }

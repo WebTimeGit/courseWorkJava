@@ -9,7 +9,7 @@ public class ParkingSpace {
     private long id;
     private Status status;
 
-    public static final String SEQUENCE_NAME = "parking_space_sequence";
+    public static final String SEQUENCE_NAME = "parking_space_seq";
 
     public enum Status {
         OCCUPIED,

@@ -9,7 +9,7 @@ export const useCheckLogin = () => {
 
 	console.log('token ', token)
 	const { data, isLoading, error } = useSWR<TUserInfo>(
-		token ? API?.USERS?.userInfo : null,
+		token ? API?.users?.userInfo : null,
 		fetcher,
 		{ dedupingInterval: 5000 }
 	);

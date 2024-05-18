@@ -26,7 +26,11 @@ export const Header = () => {
 
 
 						{isAuth ? (
-							<>
+							<div className={styles.menu}>
+								<Link href={ROUTES.settings} className={styles.login}>
+									Settings
+								</Link>
+
 								<Link href={ROUTES.users.profile(userData?.id)} className={styles.login}>
 									Profile
 								</Link>
@@ -34,7 +38,7 @@ export const Header = () => {
 								<button className={styles.login} onClick={onHandleLogout} aria-label="Logout">
 									Logout
 								</button>
-							</>
+							</div>
 
 						) : (
 							<>

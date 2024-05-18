@@ -1,14 +1,14 @@
 package com.parking.management.controllers;
 
+import com.parking.management.dto.ErrorResponseDTO;
+import com.parking.management.dto.RegistrationDTO;
+import com.parking.management.dto.LoginDTO;
+import com.parking.management.dto.TokenDTO;
 import com.parking.management.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.parking.management.dto.RegistrationDTO;
-import com.parking.management.dto.LoginDTO;
-import com.parking.management.dto.TokenDTO;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -26,12 +26,13 @@ public class AuthController {
             String token = authService.registrationUser(registrationDTO.getUsername(), registrationDTO.getPassword(), registrationDTO.getEmail());
             return ResponseEntity.ok(new TokenDTO(token));
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
+            ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An error occurred", System.currentTimeMillis());
+            return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 
     @PostMapping("/login/")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
@@ -39,6 +40,7 @@ public class AuthController {
         if (token != null) {
             return ResponseEntity.ok(new TokenDTO(token));
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.UNAUTHORIZED.value(), "Invalid credentials", System.currentTimeMillis());
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
     }
 }

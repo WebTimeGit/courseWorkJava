@@ -17,7 +17,6 @@ public class AuthService {
     private final JwtTokenService jwtTokenService;
     private final BCryptPasswordEncoder passwordEncoder;
 
-
     @Autowired
     public AuthService(UserRepository userRepository, SequenceGeneratorService sequenceGeneratorService, JwtTokenService jwtTokenService) {
         this.userRepository = userRepository;
@@ -26,10 +25,16 @@ public class AuthService {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-    // Реєстрація користувача
+    /**
+     * Реєстрація користувача.
+     * @param username ім'я користувача
+     * @param password пароль користувача
+     * @param email електронна адреса користувача
+     * @return токен JWT
+     */
     public String registrationUser(String username, String password, String email) {
         if (userRepository.existsByEmail(email)) {
-            throw new IllegalArgumentException("Username already taken");
+            throw new IllegalArgumentException("Email already taken");
         }
 
         User newUser = new User();
@@ -45,7 +50,12 @@ public class AuthService {
         return jwtTokenService.createToken(email, "USER");
     }
 
-    // Логін користувача
+    /**
+     * Логін користувача.
+     * @param email електронна адреса користувача
+     * @param password пароль користувача
+     * @return токен JWT або null, якщо аутентифікація не вдалася
+     */
     public String loginUser(String email, String password) {
         Optional<User> userOptional = userRepository.findByEmail(email);
         if (userOptional.isPresent()) {
@@ -57,7 +67,11 @@ public class AuthService {
         return null;
     }
 
-    // Перевірка дійсності токена
+    /**
+     * Перевірка дійсності токена.
+     * @param token JWT токен
+     * @return true, якщо токен дійсний, false - якщо ні
+     */
     public boolean isTokenValid(String token) {
         return jwtTokenService.validateToken(token);
     }

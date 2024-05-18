@@ -2,7 +2,8 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { loggedAxios } from '@/services/axios';
 import { API } from '@/services/api/api';
 import { mutate } from 'swr';
-import {ParkingSpace} from "@/services/api/parking_spaces";
+import {PARKING_SPACES, ParkingSpace} from "@/services/api/parking_spaces";
+import {ParkingHistory} from "@/services/api/parking";
 
 export const ManageParkingSpacesForm: React.FC = () => {
 	const [status, setStatus] = useState<ParkingSpace['status']>('FREE');
@@ -10,6 +11,15 @@ export const ManageParkingSpacesForm: React.FC = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
 	const [success, setSuccess] = useState<string | null>(null);
+	const [parkingHistory, setParkingHistory] = useState<ParkingHistory[] | []>([]);
+
+	const handleChangeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
+		setStatus(e.target.value as ParkingSpace['status']);
+	};
+	const handleChangeId = (e: ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value;
+		setParkingSpaceId(value === '' ? '' : Number(value));
+	};
 
 	const handleCreate = async (e: FormEvent) => {
 		e.preventDefault();
@@ -24,7 +34,8 @@ export const ManageParkingSpacesForm: React.FC = () => {
 
 			const response = await loggedAxios.post<ParkingSpace>(API.PARKING_SPACES.create, data);
 			console.log('Response:', response);
-			mutate(API.PARKING_SPACES.getAll); // Оновлення списку паркомісць
+			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space created successfully!');
 		} catch (error: any) {
 			console.error('Error:', error);
@@ -33,7 +44,6 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
-
 	const handleDelete = async (e: FormEvent) => {
 		e.preventDefault();
 		setIsLoading(true);
@@ -43,7 +53,8 @@ export const ManageParkingSpacesForm: React.FC = () => {
 		try {
 			await loggedAxios.delete(`${API.PARKING_SPACES.delete}/${parkingSpaceId}`);
 			console.log('Deleted parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAll); // Оновлення списку паркомісць
+			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space deleted successfully!');
 		} catch (error: any) {
 			console.error('Error:', error);
@@ -52,7 +63,6 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
-
 	const handleUpdate = async (e: FormEvent) => {
 		e.preventDefault();
 		setIsLoading(true);
@@ -66,7 +76,8 @@ export const ManageParkingSpacesForm: React.FC = () => {
 
 			await loggedAxios.put<ParkingSpace>(`${API.PARKING_SPACES.update}/${parkingSpaceId}`, data);
 			console.log('Updated parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAll); // Оновлення списку паркомісць
+			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space updated successfully!');
 		} catch (error: any) {
 			console.error('Error:', error);
@@ -75,19 +86,100 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
+	const handleReserve = async (e: FormEvent) => {
+		e.preventDefault();
+		setIsLoading(true);
+		setError(null);
+		setSuccess(null);
 
-	const handleChangeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
-		setStatus(e.target.value as ParkingSpace['status']);
+		try {
+			const response = await loggedAxios.post(`${API.PARKING.reserve}/${parkingSpaceId}`);
+			console.log('Reserved parking space with ID:', parkingSpaceId);
+			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.count);
+			setSuccess('Parking space reserved successfully!');
+		} catch (error: any) {
+			console.error('Error:', error);
+			setError('Failed to reserve parking space. ' + (error.response?.data?.message || error.message));
+		} finally {
+			setIsLoading(false);
+		}
+	};
+	const handleRelease = async (e: FormEvent) => {
+		e.preventDefault();
+		setIsLoading(true);
+		setError(null);
+		setSuccess(null);
+
+		try {
+			const response = await loggedAxios.post(`${API.PARKING.release}/${parkingSpaceId}`);
+			console.log('Released parking space with ID:', parkingSpaceId);
+			mutate(API.PARKING_SPACES.getAll);
+			mutate(API.PARKING_SPACES.count);
+			setSuccess('Parking space released successfully!');
+		} catch (error: any) {
+			console.error('Error:', error);
+			setError('Failed to release parking space. ' + (error.response?.data?.message || error.message));
+		} finally {
+			setIsLoading(false);
+		}
+	};
+	const handleHistory = async (e: FormEvent) => {
+		e.preventDefault();
+		setIsLoading(true);
+		setError(null);
+		setSuccess(null);
+
+		try {
+			const response = await loggedAxios.get(`${API.PARKING.userHistory}`);
+			setParkingHistory(response?.data)
+			setSuccess('Get your history parking successfully!');
+		} catch (error: any) {
+			console.error('Error:', error);
+			setError('Failed to Get your history parking. ' + (error.response?.data?.message || error.message));
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
-	const handleChangeId = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
-		setParkingSpaceId(value === '' ? '' : Number(value));
+	const handleHistorySpace = async (e: FormEvent) => {
+		e.preventDefault();
+		setIsLoading(true);
+		setError(null);
+		setSuccess(null);
+
+		try {
+			const response = await loggedAxios.get(`${API.PARKING_SPACES.spaceHistory}/${parkingSpaceId}`);
+			setParkingHistory(response?.data)
+			setSuccess('Get history space parking successfully!');
+		} catch (error: any) {
+			console.error('Error:', error);
+			setError('Failed to Get history space parking. ' + (error.response?.data?.message || error.message));
+		} finally {
+			setIsLoading(false);
+		}
+	};
+	const handleHistoryUser = async (e: FormEvent) => {
+		e.preventDefault();
+		setIsLoading(true);
+		setError(null);
+		setSuccess(null);
+
+		try {
+			const response = await loggedAxios.get(`${API.users.userHistory}/${parkingSpaceId}`);
+			setParkingHistory(response?.data)
+			setSuccess('Get history space parking successfully!');
+		} catch (error: any) {
+			console.error('Error:', error);
+			setError('Failed to Get history space parking. ' + (error.response?.data?.message || error.message));
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
 		<div className="max-w-md mx-auto my-10">
-			<form onSubmit={handleCreate} className="mb-6">
+			<form className="mb-6">
 				<div className="mb-4">
 					<label htmlFor="status" className="block text-sm font-bold mb-2">Status:</label>
 					<select
@@ -101,16 +193,15 @@ export const ManageParkingSpacesForm: React.FC = () => {
 						<option value="OCCUPIED">Occupied</option>
 					</select>
 				</div>
-				<button type="submit"
+
+				<button onClick={(e) => handleCreate(e)}
 				        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 				        disabled={isLoading}>
 					{isLoading ? 'Creating...' : 'Create Parking Space'}
 				</button>
-			</form>
 
-			<form onSubmit={handleUpdate} className="mb-6">
 				<div className="mb-4">
-					<label htmlFor="parkingSpaceId" className="block text-sm font-bold mb-2">Parking Space ID:</label>
+					<label htmlFor="parkingSpaceId" className="block text-sm font-bold mb-2">Parking Space ID / User ID:</label>
 					<input
 						type="number"
 						id="parkingSpaceId"
@@ -120,35 +211,69 @@ export const ManageParkingSpacesForm: React.FC = () => {
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 					/>
 				</div>
-				<button type="submit"
+
+				<button onClick={(e) => handleUpdate(e)}
 				        className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 				        disabled={isLoading}>
 					{isLoading ? 'Updating...' : 'Update Parking Space'}
 				</button>
-			</form>
 
-			<form onSubmit={handleDelete}>
-				<div className="mb-4">
-					<label htmlFor="parkingSpaceId" className="block text-sm font-bold mb-2">Parking Space ID:</label>
-					<input
-						type="number"
-						id="parkingSpaceId"
-						name="parkingSpaceId"
-						value={parkingSpaceId}
-						onChange={handleChangeId}
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-					/>
-				</div>
-				<button type="submit"
+				<button onClick={(e) => handleDelete(e)}
 				        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 				        disabled={isLoading}>
 					{isLoading ? 'Deleting...' : 'Delete Parking Space'}
+				</button>
+
+				<button onClick={(e) => handleReserve(e)}
+				        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				        disabled={isLoading}>
+					{isLoading ? 'Reserving...' : 'Reserve Parking Space'}
+				</button>
+
+				<button onClick={(e) => handleRelease(e)}
+				        className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				        disabled={isLoading}>
+					{isLoading ? 'Releasing...' : 'Release Parking Space'}
+				</button>
+
+				<button onClick={(e) => handleHistorySpace(e)}
+				        className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				        disabled={isLoading}>
+					{isLoading ? 'Getting history parking space...' : 'Get history parking space'}
+				</button>
+
+				<button onClick={(e) => handleHistoryUser(e)}
+				        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				        disabled={isLoading}>
+					{isLoading ? 'Getting history parking user...' : 'Get history parking user'}
 				</button>
 			</form>
 
 			{error && <p className="text-red-500 text-xs italic">{error}</p>}
 			{success && <p className="text-green-500 text-xs italic">{success}</p>}
+
+			<button onClick={(e) => handleHistory(e)}
+			        className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+			        disabled={isLoading}>
+				{isLoading ? 'Getting my history parking...' : 'Get my history parking'}
+			</button>
+			<ul>
+				{
+					parkingHistory?.length > 0 &&
+					parkingHistory?.map(parking => {
+
+						return (
+							<li key={parking?.id}>
+								<span>parking space: {parking?.parkingSpaceId}</span> <br/>
+								<span>User ID: {parking?.userId}</span> <br/>
+								<span>startTime parking space: {parking?.startTime}</span> <br/>
+								<span>endTime parking space: {parking?.endTime}</span> <br/>
+							</li>
+						)
+					})
+				}
+			</ul>
+
 		</div>
 	);
 };
-
