@@ -27,4 +27,5 @@ export const openRoutes = [
 	{ path: ROUTES.auth.registration, type: RouteType.exact },
 	{ path: 'profile/[userId]', type: RouteType.withId },
 	{ path: ROUTES.settings, type: RouteType.exact },
+	{ path: ROUTES.parkingSpaces, type: RouteType.exact },
 ];
