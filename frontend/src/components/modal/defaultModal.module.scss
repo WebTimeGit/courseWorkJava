@@ -1,0 +1,28 @@
+@import "../../styles/var";
+
+.overlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modals {
+	position: absolute;
+	inset: 25% auto auto 50%;
+	border: 1px solid $primary-color;
+	background: $third-background;
+	overflow: auto;
+	border-radius: 4px;
+	outline: none;
+	padding: 36px 16px 16px;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.close {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 5px;
+	right: 5px;
+}

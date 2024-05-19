@@ -16,7 +16,8 @@ export const ROUTES = {
 		profile: (id: string | number | undefined) =>
 			id ? '/profile/' + id : '/profile',
 	},
-	settings: '/settings'
+	settings: '/settings',
+	parkingSpaces: '/parkingSpaces'
 }
 
 

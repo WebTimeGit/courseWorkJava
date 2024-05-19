@@ -1,7 +1,7 @@
 
 export const PARKING = {
-	reserve: '/api/parkingspaces/reserve',
-	release: '/api/parkingspaces/release',
+	reserve: (parkingSpaceId: number) => `/api/parkingspaces/reserve/${parkingSpaceId ? parkingSpaceId : ''}`,
+	release: (parkingSpaceId: number) => `/api/parkingspaces/release/${parkingSpaceId ? parkingSpaceId : ''}`,
 	userHistory: '/api/parkingspaces/history/user',
 }
 

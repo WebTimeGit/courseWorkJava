@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { loggedAxios } from '@/services/axios';
 import { API } from '@/services/api/api';
 import { mutate } from 'swr';
-import {PARKING_SPACES, ParkingSpace} from "@/services/api/parking_spaces";
+import {ParkingSpace} from "@/services/api/parking_spaces";
 import {ParkingHistory} from "@/services/api/parking";
 
 export const ManageParkingSpacesForm: React.FC = () => {
@@ -37,7 +37,6 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			};
 
 			const response = await loggedAxios.post<ParkingSpace>(API.PARKING_SPACES.create, data);
-			console.log('Response:', response);
 			mutate(API.PARKING_SPACES.getAllForAdmin);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space created successfully!');
@@ -56,7 +55,6 @@ export const ManageParkingSpacesForm: React.FC = () => {
 
 		try {
 			await loggedAxios.delete(`${API.PARKING_SPACES.delete}/${parkingSpaceId}`);
-			console.log('Deleted parking space with ID:', parkingSpaceId);
 			mutate(API.PARKING_SPACES.getAllForAdmin);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space deleted successfully!');
@@ -80,52 +78,12 @@ export const ManageParkingSpacesForm: React.FC = () => {
 			};
 
 			await loggedAxios.put<ParkingSpace>(`${API.PARKING_SPACES.update}/${parkingSpaceId}`, data);
-			console.log('Updated parking space with ID:', parkingSpaceId);
 			mutate(API.PARKING_SPACES.getAllForAdmin);
 			mutate(API.PARKING_SPACES.count);
 			setSuccess('Parking space updated successfully!');
 		} catch (error: any) {
 			console.error('Error:', error);
 			setError('Failed to update parking space. ' + (error.response?.data?.message || error.message));
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
-	const handleReserve = async (e: FormEvent) => {
-		e.preventDefault();
-		setIsLoading(true);
-		setError(null);
-		setSuccess(null);
-
-		try {
-			const response = await loggedAxios.post(`${API.PARKING.reserve}/${parkingSpaceId}`);
-			console.log('Reserved parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAllForUser);
-			mutate(API.PARKING_SPACES.count);
-			setSuccess('Parking space reserved successfully!');
-		} catch (error: any) {
-			console.error('Error:', error);
-			setError('Failed to reserve parking space. ' + (error.response?.data?.message || error.message));
-		} finally {
-			setIsLoading(false);
-		}
-	};
-	const handleRelease = async (e: FormEvent) => {
-		e.preventDefault();
-		setIsLoading(true);
-		setError(null);
-		setSuccess(null);
-
-		try {
-			const response = await loggedAxios.post(`${API.PARKING.release}/${parkingSpaceId}`);
-			console.log('Released parking space with ID:', parkingSpaceId);
-			mutate(API.PARKING_SPACES.getAllForUser);
-			mutate(API.PARKING_SPACES.count);
-			setSuccess('Parking space released successfully!');
-		} catch (error: any) {
-			console.error('Error:', error);
-			setError('Failed to release parking space. ' + (error.response?.data?.message || error.message));
 		} finally {
 			setIsLoading(false);
 		}
@@ -172,7 +130,7 @@ export const ManageParkingSpacesForm: React.FC = () => {
 		setSuccess(null);
 
 		try {
-			const response = await loggedAxios.get(`${API.users.userHistory}/${parkingSpaceId}`);
+			const response = await loggedAxios.get(`${API.USERS.userHistory}/${parkingSpaceId}`);
 			setParkingHistory(response?.data)
 			setSuccess('Get history space parking successfully!');
 		} catch (error: any) {
@@ -241,18 +199,6 @@ export const ManageParkingSpacesForm: React.FC = () => {
 				        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 				        disabled={isLoading}>
 					{isLoading ? 'Deleting...' : 'Delete Parking Space'}
-				</button>
-
-				<button onClick={(e) => handleReserve(e)}
-				        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-				        disabled={isLoading}>
-					{isLoading ? 'Reserving...' : 'Reserve Parking Space'}
-				</button>
-
-				<button onClick={(e) => handleRelease(e)}
-				        className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-				        disabled={isLoading}>
-					{isLoading ? 'Releasing...' : 'Release Parking Space'}
 				</button>
 
 				<button onClick={(e) => handleHistorySpace(e)}

@@ -6,7 +6,7 @@ import {openRoutes, ROUTES, RouteType} from "@/routes/routes";
 export const AuthRedirect: React.FC<{
 	children: React.ReactElement;
 }> = ({ children }) => {
-	const { isAuth } = useAuthContext()
+	const { isAuth, loading } = useAuthContext()
 	const router = useRouter()
 
 	const checkDynamicPathMatch = (routPath: string, dynamicPath: string) => {
@@ -17,6 +17,8 @@ export const AuthRedirect: React.FC<{
 	}
 
 	useEffect(() => {
+		if (loading) return
+
 		const isOpenPath = openRoutes.some(route => {
 			if (route.type === RouteType.exact) return route.path === router.pathname
 			else if (route.type === RouteType.withId) return checkDynamicPathMatch(route.path, '[userId]');
@@ -26,7 +28,11 @@ export const AuthRedirect: React.FC<{
 		if (!isAuth && !isOpenPath) {
 			router.push(ROUTES.auth.login).then()
 		}
-	}, [isAuth, router])
+	}, [isAuth, loading, router])
+
+	if (loading) {
+		return
+	}
 
 	return children
 }

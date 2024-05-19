@@ -37,10 +37,8 @@ export const UpdateUserProfileForm = () => {
 				username: formData.username
 			};
 
-			console.log("Sending data:", data);
-			const response = await loggedAxios.patch(API.users?.profile(id), data);
-			console.log("Response:", response);
-			mutate(API?.users?.userInfo)
+			const response = await loggedAxios.patch(API.USERS?.profile(id), data);
+			mutate(API?.USERS?.userInfo)
 			alert('Profile updated successfully!');
 		} catch (error: any) {
 			console.error("Error:", error);

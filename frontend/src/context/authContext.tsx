@@ -4,6 +4,10 @@ import {isAxiosError} from 'axios';
 import {API} from "@/services/api/api";
 import {api} from "@/services/axios";
 import {useCheckLogin} from "@/hooks/useCheckLogin";
+import {useRouter} from "next/router";
+import {handleHomeRedirect} from "@/services/helpers";
+import {toast} from "react-toastify";
+import {ToastMessage} from "@/components/toast/toast";
 
 
 
@@ -43,7 +47,7 @@ const initialValues = {
 	isAuth: false,
 	loading: false,
 	setLoading: (loading: boolean) => {},
-	error: {email: Array(), password: Array()},
+	error: { email: [] as string[], password: [] as string[] },
 	login: async (data: loginDTO, onSuccess?: () => void) => {},
 	register: async (data: registerDTO, onSuccess?: () => void) => {},
 	logout: () => {},
@@ -72,9 +76,9 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({childre
 
 	const { statusError, userInfo } = useCheckLogin();
 	const [userData, setUserData] = useState<TUserInfo | null>(null);
+	const router = useRouter()
 
 	useEffect(() => {
-
 		if (statusError === 'success' && userInfo) {
 			setIsAuth(true)
 			setUserData(userInfo)
@@ -82,6 +86,8 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({childre
 			setIsAuth(false)
 			logout();
 		}
+
+		setLoading(false)
 	}, [statusError, userInfo, setIsAuth]);
 
 
@@ -94,11 +100,11 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({childre
 				setToken(response?.data?.token);
 				setIsAuth(true);
 
-				// toast.success('Successful login');
+				toast.success('Successful login');
 				onSuccess && await onSuccess();
 			} catch (error_) {
 				if (isAxiosError(error_)) {
-					// toast.error(<ToastMessage title='Error' message={error_.response?.data?.detail}/>);
+					toast.error(<ToastMessage title='Error' message={error_.response?.data?.detail}/>);
 
 					if (error_) {
 						setError({
@@ -120,8 +126,8 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({childre
 	const logout = useCallback(() => {
 		setToken("");
 		setIsAuth(false);
-
 		localStorage.removeItem('token');
+		handleHomeRedirect(router.push);
 	}, []);
 
 

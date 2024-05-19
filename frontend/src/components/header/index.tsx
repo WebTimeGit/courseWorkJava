@@ -18,7 +18,7 @@ export const Header = () => {
 			<Container>
 				<div className={styles.headerWrapper}>
 					<Link href={ROUTES.home} className={styles.logo}>
-						<Image src={'/logo.png'} width={50} height={50} alt={'WebTime Logo'} />
+						<Image src={'/logo.png'} width={50} height={50} alt='WebTime Logo' priority/>
 						WebTime
 					</Link>
 
@@ -27,6 +27,9 @@ export const Header = () => {
 
 						{isAuth ? (
 							<div className={styles.menu}>
+								<Link href={ROUTES.parkingSpaces} className={styles.login}>
+									Parking Spaces
+								</Link>
 								<Link href={ROUTES.settings} className={styles.login}>
 									Settings
 								</Link>

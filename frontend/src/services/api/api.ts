@@ -4,8 +4,9 @@ import {PARKING_SPACES} from "@/services/api/parking_spaces";
 import {PARKING} from "@/services/api/parking";
 
 export const API = {
+	home: '/',
 	AUTH,
-	users: USERS,
+	USERS,
 	PARKING_SPACES,
 	PARKING
 }
